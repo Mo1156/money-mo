@@ -1,6 +1,26 @@
 namespace SpriteKind {
     export const spawn = SpriteKind.create()
 }
+function hero_ () {
+    mySprite = sprites.create(img`
+. . . . 1 1 1 1 1 e . . . . . . 
+. . . 1 1 1 1 d 1 1 e . . . . . 
+. . e 1 1 1 1 1 1 1 e . . . . . 
+. . e 1 1 1 1 1 1 1 e . . . . . 
+. . e 1 1 1 1 1 e f f . . . . . 
+. . e e 2 2 e f f f f . . . . . 
+. e e e f e 2 b f f f f f f . . 
+e e 2 2 d f 2 e f f f f f f f . 
+e e 2 2 d f e c f f f f f f f f 
+b 1 1 d e e c 4 f f f f f f f f 
+. f f e e e e 4 f f f f f f f . 
+. . f f d d e 4 f f f f f f . . 
+. . f f d d e c f f c d . . . . 
+. . . f f f f . . . . . . . . . 
+. . f f f e e e . . . . . . . . 
+. . f f f f e e e . . . . . . . 
+`, SpriteKind.Player)
+}
 scene.onHitTile(SpriteKind.Player, 13, function (sprite) {
     mySprite.setImage(img`
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -38,57 +58,6 @@ scene.onHitTile(SpriteKind.Player, 13, function (sprite) {
 `)
     game.over(true)
 })
-function enemy () {
-    for (let value33 of scene.getTilesByType(12)) {
-        spawn2 = sprites.create(img`
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . d d d d d . . . . . . . . . . 
-. . . . . . . . d d d d d d d d . . . . . . . . 
-. . . . . . . d d d d d d d d d d . . . . . . . 
-. . . . . . . d d d d d d d d d d . . . . . . . 
-. . . . . . d d d d d d d d d d d . . . . . . . 
-. . . . . . d d d d d d d d d d d d . . . . . . 
-. . . . . d d d d d d d d d d d d d . . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . . d d d d d d d d d d d d d . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-`, SpriteKind.spawn)
-        value33.place(spawn2)
-    }
-}
-function hero_ () {
-    mySprite = sprites.create(img`
-. . . . 1 1 1 1 1 e . . . . . . 
-. . . 1 1 1 1 d 1 1 e . . . . . 
-. . e 1 1 1 1 1 1 1 e . . . . . 
-. . e 1 1 1 1 1 1 1 e . . . . . 
-. . e 1 1 1 1 1 e f f . . . . . 
-. . e e 2 2 e f f f f . . . . . 
-. e e e f e 2 b f f f f f f . . 
-e e 2 2 d f 2 e f f f f f f f . 
-e e 2 2 d f e c f f f f f f f f 
-b 1 1 d e e c 4 f f f f f f f f 
-. f f e e e e 4 f f f f f f f . 
-. . f f d d e 4 f f f f f f . . 
-. . f f d d e c f f c d . . . . 
-. . . f f f f . . . . . . . . . 
-. . f f f e e e . . . . . . . . 
-. . f f f f e e e . . . . . . . 
-`, SpriteKind.Player)
-}
 /**
  * game over when sprite reaches the end
  */
@@ -240,6 +209,37 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 . . . . . . . . . . . . . . . . 
 `, mySprite, 500, 0)
 })
+function enemy () {
+    for (let value33 of scene.getTilesByType(12)) {
+        spawn2 = sprites.create(img`
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . d d d d d . . . . . . . . . . 
+. . . . . . . . d d d d d d d d . . . . . . . . 
+. . . . . . . d d d d d d d d d d . . . . . . . 
+. . . . . . . d d d d d d d d d d . . . . . . . 
+. . . . . . d d d d d d d d d d d . . . . . . . 
+. . . . . . d d d d d d d d d d d d . . . . . . 
+. . . . . d d d d d d d d d d d d d . . . . . . 
+. . . . d d d d d d d d d d d d d d d . . . . . 
+. . . . d d d d d d d d d d d d d d d . . . . . 
+. . . . d d d d d d d d d d d d d d d . . . . . 
+. . . . d d d d d d d d d d d d d d d . . . . . 
+. . . . . d d d d d d d d d d d d d . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . . . . . . . . . 
+`, SpriteKind.spawn)
+        value33.place(spawn2)
+    }
+}
 scene.onHitTile(SpriteKind.Player, 2, function (sprite) {
     mySprite.setPosition(25, 23)
 })
