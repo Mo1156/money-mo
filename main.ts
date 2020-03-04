@@ -1,6 +1,9 @@
 namespace SpriteKind {
     export const spawn = SpriteKind.create()
 }
+/**
+ * mape title
+ */
 function buildlevel () {
     if (nextLevel == list.length) {
         game.over(true)
@@ -294,9 +297,6 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
  */
 /**
  * sprite( main character)
- */
-/**
- * mape title
  */
 /**
  * map of everything and their locations
