@@ -5,7 +5,15 @@ namespace SpriteKind {
  * life points
  */
 /**
+ * ememy
+ */
+/**
  * mape title
+ */
+/**
+ * function arrays 
+ * 
+ * setting up how to chnage levels by 1
  */
 function buildlevel () {
     if (nextLevel == list.length) {
@@ -53,6 +61,9 @@ scene.onHitTile(SpriteKind.Player, 13, function (sprite) {
 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 
 `)
 })
+/**
+ * hero
+ */
 function hero () {
     mySprite = sprites.create(img`
 . . . . 1 1 1 1 1 e . . . . . . 
@@ -181,6 +192,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     otherSprite.destroy(effects.starField, 100)
     info.changeScoreBy(1)
 })
+/**
+ * levels ( changes the levels when you land on the dark blue )
+ */
 scene.onHitTile(SpriteKind.Player, 8, function (sprite) {
     number += 1
     if (number == 1) {
@@ -305,22 +319,22 @@ function enemy () {
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . d d d d d . . . . . . . . . . 
-. . . . . . . . d d d d d d d d . . . . . . . . 
-. . . . . . . d d d d d d d d d d . . . . . . . 
-. . . . . . . d d d d d d d d d d . . . . . . . 
-. . . . . . d d d d d d d d d d d . . . . . . . 
-. . . . . . d d d d d d d d d d d d . . . . . . 
-. . . . . d d d d d d d d d d d d d . . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . . d d d d d d d d d d d d d . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . . f f f f . . . . . . . . . . 
+. . . . . . . . f f 1 1 1 1 f f . . . . . . . . 
+. . . . . . . f b 1 1 1 1 1 1 b f . . . . . . . 
+. . . . . . . f 1 1 1 1 1 1 1 1 f . . . . . . . 
+. . . . . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . . 7 . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . 7 . . f d 1 1 1 1 1 1 1 1 d f . . . . . . 
+. . . 7 . . f d d d 1 1 1 1 d d d f f . . . . . 
+. . . 7 7 . f b d b f d d f b d b f c f . . . . 
+. . . 7 7 7 f c d c f 1 1 f c d c f b f . . . . 
+. . . . 7 7 f f f b d b 1 b d f f c f . . . . . 
+. . . . f c b 1 b c f f f f f f . . . . . . . . 
+. . . . f 1 c 1 c 1 f f f f f f . . . . . . . . 
+. . . . f d f d f d f f f f f . . . . . . . . . 
+. . . . . f . f . f . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
@@ -631,22 +645,22 @@ for (let value33 of scene.getTilesByType(12)) {
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
-. . . . . . . . . d d d d d . . . . . . . . . . 
-. . . . . . . . d d d d d d d d . . . . . . . . 
-. . . . . . . d d d d d d d d d d . . . . . . . 
-. . . . . . . d d d d d d d d d d . . . . . . . 
-. . . . . . d d d d d d d d d d d . . . . . . . 
-. . . . . . d d d d d d d d d d d d . . . . . . 
-. . . . . d d d d d d d d d d d d d . . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . d d d d d d d d d d d d d d d . . . . . 
-. . . . . d d d d d d d d d d d d d . . . . . . 
-. . . . . . . . . . . . . . . . . . . . . . . . 
+. . . . . . . . . f f f f f . . . . . . . . . . 
+. . . . . . . . f 1 1 1 1 1 f f . . . . . . . . 
+. . . . . . . f b 1 1 1 1 1 1 b f . . . . . . . 
+. . . . . . . f 1 1 1 1 1 1 1 d b f . . . . . . 
+. . . . . . f d 1 1 1 1 1 1 d d d f . . . . . . 
+. . . . . . f d 1 1 1 1 1 d d d d f . . . . . . 
+. . . . . . f d 1 1 d d d d d d d f . . . . . . 
+. . . . . . f 1 1 1 d d d d d d d f . . . . . . 
+. . . . . . f 1 1 f c d d d d d d f . . . . . . 
+. . . . . f b 1 1 1 1 b d d d b f . . . . . . . 
+. . . . . f 1 b 1 b d f c f f f . . . . . . . . 
+. . . . . f b f b f f f f f f f f . . . . . . . 
+. . . . . . f f f f f f f f f f f . f f . . . . 
+. . . . . . . . . . . f f f f f f f f . . . . . 
+. . . . . . . . f 1 b 1 b f f f f f f . . . . . 
+. . . . . . . . f b f b f f f f f f . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . . . . . . . . . 
